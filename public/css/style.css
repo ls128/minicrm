@@ -1,0 +1,17 @@
+.edit{
+	color:navy;
+}
+
+.show{
+	color:darkred;
+}
+
+.action{
+	margin:0px 2px;
+}
+
+.btn-new{
+	margin-bottom: 8px;
+	color:white;
+	background-color:green;
+}
