@@ -18,7 +18,7 @@ class Admin
         if (\Auth::user()->role == 'admin') {
             return $next($request);
         }
-        
-        return redirect('home');
+
+        return redirect('/');
     }
 }

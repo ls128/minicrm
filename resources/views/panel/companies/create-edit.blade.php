@@ -17,10 +17,10 @@
 
 
 	@if (isset($company))
-	{!! Form::model($company, ['route' => ['company.update', $company->id], 'class' => 'form', 'method' => 'put']) !!}
+	{!! Form::model($company, ['route' => ['company.update', $company->id], 'class' => 'form', 'method' => 'put', 'enctype' => 'multipart/form-data']) !!}
 
 	@else
-	{!! Form::open(['route' => 'company.store', 'class' => 'form']) !!}
+	{!! Form::open(['route' => 'company.store', 'class' => 'form', 'enctype' => 'multipart/form-data']) !!}
 	
 	@endif
 
@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::text('logo', null, ['class' => 'form-control', 'placeholder' => 'Logo']) !!}
+			{!! Form::file('logo') !!}
 		</div>
 
 		<div class="form-group">

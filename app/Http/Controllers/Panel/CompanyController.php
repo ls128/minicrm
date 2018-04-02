@@ -47,6 +47,16 @@ class CompanyController extends Controller //Resource Controller - CRUD
      */
     public function store(CompanyFormRequest $request)
     {
+        if($request->hasFile('logo')){
+            $fileExt    = $request->file('logo')->getClientOriginalName();
+            $filename   = pathinfo($fileExt, PATHINFO_FILENAME);
+            $extension  = $request->file('logo')->getClientOriginalExtension();
+            $fileStore  = $filename.'_'.time().'.'.$extension;
+            $path       = $request->file('logo')->storeAs('public/logos', $fileStore);
+        } else {
+            $fileStore  = 'noimage.jpg';
+        }
+
         $data = $request->all();
         $insert = $this->company->create($data);
 
@@ -56,6 +66,7 @@ class CompanyController extends Controller //Resource Controller - CRUD
         else{
             return redirect()->route('company.create');
         }
+        
     }
 
     /**

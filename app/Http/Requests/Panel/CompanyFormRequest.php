@@ -27,7 +27,7 @@ class CompanyFormRequest extends FormRequest
         [
             'name'      => 'required|max:100',
             'email'     => 'max:100',
-            'logo'      => 'max:300',
+            'logo'      => 'image|nullable|max:1999',
             'website'   => 'max:300'
         ];
     }
