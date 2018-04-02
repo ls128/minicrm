@@ -58,6 +58,7 @@ class CompanyController extends Controller //Resource Controller - CRUD
         }
 
         $data = $request->all();
+        $data['logo'] = $fileStore;
         $insert = $this->company->create($data);
 
         if($insert){
@@ -66,7 +67,6 @@ class CompanyController extends Controller //Resource Controller - CRUD
         else{
             return redirect()->route('company.create');
         }
-        
     }
 
     /**
