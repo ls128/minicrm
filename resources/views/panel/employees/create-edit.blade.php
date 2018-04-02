@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="form-group">
-		{!! Form::select('company', $companies, null, ['class' => 'form-control']) !!}
+		{!! Form::text('company', null, ['class' => 'form-control', 'placeholder' => 'Company']) !!}
 		</div>
 
 		<div class="form-group">

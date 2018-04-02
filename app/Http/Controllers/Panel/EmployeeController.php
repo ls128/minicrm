@@ -38,9 +38,10 @@ class EmployeeController extends Controller //Resource Controller - CRUD
      */
     public function create()
     {
-        $companies = DB::table('companies')->pluck('name');
-
-        return view('panel.employees.create-edit', compact('companies'));
+        return view('panel.employees.create-edit');
+        
+        //$companies = DB::table('companies')->pluck('name');
+        //return view('panel.employees.create-edit', compact('companies'));
     }
 
     /**

@@ -12,9 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run() //Creating the first user with Database Seeds
     {
         DB::table('users')->insert([
-            'name' => 'First',
+            'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => bcrypt('secret'),
+            'role' => 'admin',
         ]);
     }
 }
