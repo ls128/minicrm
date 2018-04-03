@@ -21,7 +21,7 @@
 		<tr>
 			<td>{{$company->name}}</td>
 			<td>{{$company->email}}</td>
-			<td><img src="/storage/logos/{{$company->logo}}" height="30px" width="30px"/></td>
+			<td><img src="/minicrm/public/storage/logos/{{$company->logo}}" height="30px" width="30px"/></td>
 			<td>{{$company->website}}</td>
 			<td>
 				<a href="{{route('company.edit', $company->id)}}" class="action edit">
