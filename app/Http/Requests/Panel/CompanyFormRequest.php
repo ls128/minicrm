@@ -21,7 +21,7 @@ class CompanyFormRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules() //Validation rules
     {
         return 
         [

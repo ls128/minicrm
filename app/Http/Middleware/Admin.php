@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Admin
+class Admin //Basic Laravel Auth
 {
     /**
      * Handle an incoming request.
