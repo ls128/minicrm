@@ -22,7 +22,7 @@ class CompanyFormRequest extends FormRequest
      * @return array
      */
     public function rules() //Validation rules
-    {
+    {  
         return 
         [
             'name'      => 'required|max:100',

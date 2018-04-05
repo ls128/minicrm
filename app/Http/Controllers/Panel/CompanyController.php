@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Panel;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Panel\Company;
 use App\Http\Requests\Panel\CompanyFormRequest;
@@ -104,9 +105,20 @@ class CompanyController extends Controller //Resource Controller - CRUD
      */
     public function update(CompanyFormRequest $request, $id)
     {
+        if($request->hasFile('logo')){
+            $fileExt    = $request->file('logo')->getClientOriginalName();
+            $filename   = pathinfo($fileExt, PATHINFO_FILENAME);
+            $extension  = $request->file('logo')->getClientOriginalExtension();
+            $fileStore  = $filename.'_'.time().'.'.$extension;
+            $path       = $request->file('logo')->storeAs('public/logos', $fileStore);
+        }
+
         $data = $request->all();
         $company = $this->company->find($id);
-        $update = $company->update($data);
+        if($request->hasFile('logo')){
+            $data['logo'] = $fileStore;
+        }
+            $update = $company->update($data);
 
         if($update)
             return redirect()->route('company.index');
